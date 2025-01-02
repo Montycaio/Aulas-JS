@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lista de Numeros</title>
+</head>
+<body>
+    <form method="get" id="forms">
+        <label for="intro"><h1>Lista de Numeros</h1></label>
+        <input type="text" id="numeros" placeholder="Digite os numeros e separe-os por vigula...">
+        <button type="submit">enviar</button>
+    </form>
+
+    <ul id="lista"></ul>
+
+    <script>
+        document.getElementById('forms').addEventListener('submit', function(event){
+            event.preventDefault();
+
+            const numeros = document.getElementById('numeros').value.trim();
+
+            const array = numeros.split(',');
+
+            array.sort((a,b) => a - b);
+            
+            console.log(array);
+
+            if (numeros) {
+
+                const li = document.createElement('li');
+                li.textContent = array;
+
+                document.getElementById('lista').appendChild(li);
+                document.getElementById('numeros').value = '';
+                
+            }
+
+        })
+    </script>
+
+</body>
+</html>
