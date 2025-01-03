@@ -1,5 +1,7 @@
 <h1>Observação</h1>
+
 <p> <br> A intenção desse repositório é registrar meu progesso em JS e permitir eu visualizar todo meu avanço. </p>
+
 <p> Os scripts JS foi criado dentro do HTML para facilitar o treino dos exercicios, em projetos oficiais eu mantenho os arquivos separados, seja o HTML, CSS, Javascript e principalmente o back-end como PHP, Python, etc... <br></p>
 
 ### **Fase 1: Conceitos Básicos**
