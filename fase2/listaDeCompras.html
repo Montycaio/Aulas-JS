@@ -32,7 +32,8 @@
                 document.getElementById('compra').value = '';
 
                 const removeBtn = document.createElement('button');
-                removeBtn.textContent = 'deletar';
+                removeBtn.textContent = 'x';
+                removeBtn.classList.add('delete-button');
                 removeBtn.addEventListener('click', function () {
                     li.remove();
                 });
