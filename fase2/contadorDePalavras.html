@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Contador de Palavras</title>
+</head>
+<body>
+    <form method="get" id="forms">
+        <label for="intro"><h1>Contador de Palavras</h1></label>
+        <input type="text" id="inputPalavra" placeholder="Digite uma frase...">
+        <button type="submit">enviar</button>
+    </form>
+
+    <p id="resultado"><h1></h1></p>
+
+    <script>
+        document.getElementById('forms').addEventListener('submit', function(event){
+            event.preventDefault();
+
+            var palavra = document.getElementById('inputPalavra').value.trim();
+
+            var array = palavra.split(' ');
+
+            var totalPalavras = array.length;
+
+            console.log(array);
+
+            
+
+            if (palavra) {
+
+                const li = document.createElement('li');
+                li.textContent = `A frase contém ${totalPalavras} palavra(s).`;
+
+                document.getElementById('resultado').appendChild(li);
+                document.getElementById('inputPalavra').value = '';
+
+            } else{
+                document.getElementById('resultado').textContent = 'Digite uma frase, antes de enviar :)'
+            }
+
+        })
+    </script>
+
+
+</body>
+</html>
