@@ -7,10 +7,39 @@
     <title>Filtragem de Dados</title>
 </head>
 <body>
-    <form method="get" id="forms">
-        <label for="intro" id="intro"><h1>Filtragem de Dados</h1></label>
-        <input type="text" id="filtro">
-        <button type="submit">pesquisar</button>
+    <form id="forms">
+        <h1>Filtragem de Dados</h1>
+        <input type="text" id="filtro" placeholder="Digite um nome">
+        <button type="submit">Pesquisar</button>
     </form>
+
+    <p id="mensagem"></p>
+    <ul id="listaResult2">Nome pesquisado:</ul>
+    <ul id="listaResult">Nomes disponíveis:</ul>
+
+    <script>
+        const lista = ['Caio', 'Mateus', 'Rogerio', 'Ronaldo', 'Guilherme'];
+
+        document.getElementById('forms').addEventListener('submit', function(event){
+            event.preventDefault();
+
+            const filtro = document.getElementById('filtro').value.toLowerCase();
+            if (filtro) {
+                const nomesFiltrados = lista.filter(nome => nome.toLowerCase().includes(filtro));
+                document.getElementById('listaResult2').innerHTML = nomesFiltrados.map(nome => `<li>${nome}</li>`).join("");
+                document.getElementById('mensagem').innerHTML = "";
+            } else {
+                document.getElementById('mensagem').innerHTML = "Por favor, digite um nome :)";
+                document.getElementById('listaResult2').innerHTML = "";
+                
+            }
+        });
+
+        for (let i = 0; i < lista.length; i++) {
+            const li = document.createElement('li');
+            li.textContent = lista[i];
+            document.getElementById('listaResult').appendChild(li);       
+        }
+    </script>
 </body>
 </html>
