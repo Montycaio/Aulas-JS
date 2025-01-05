@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Filtragem de Itens</title>
+</head>
+<body>
+    <form method="get" id="forms">
+        <label for="intro" id="intro"><h1>Filtragem de Itens</h1></label>
+        <input type="text" id="inputText" placeholder="Digite o nome do item...">
+    </form>
+
+    <ul id="mostrarBusca"></ul><br><br>
+    <ul id="mostraLista"></ul>
+
+    <script>
+        const lista = [
+        'Maçã', 'Banana', 'Laranja', 'Uva', 'Manga', 'Abacaxi', 'Morango', 'Melancia', 'Pera', 'Kiwi','Cenoura', 
+        'Batata', 'Tomate', 'Alface', 'Brócolis', 'Espinafre', 'Couve', 'Pepino', 'Abobrinha', 'Berinjela',
+        'Arroz', 'Feijão', 'Macarrão', 'Pão', 'Leite', 'Queijo', 'Iogurte', 'Ovo', 'Carne', 'Peixe'];
+
+        function mostrarListaCompleta(){
+            const button1 = document.createElement('button');
+            button1.textContent = 'lista Completa';
+            button1.id = 'buttonListaCompleta'
+            document.getElementById('mostraLista').appendChild(button1);
+            document.getElementById('buttonListaCompleta').addEventListener('click', function(event){
+                event.preventDefault();
+                
+                document.getElementById('mostraLista').innerHTML= 'Todas as Frutas: <br><br>' + lista.map(item => `<li>${item}</li>`).join("");
+            })
+
+            //document.getElementById('mostraLista').innerHTML= 'Todas as Frutas: <br><br>' + lista.map(item => `<li>${item}</li>`).join("");
+        };
+
+        mostrarListaCompleta();
+
+        document.getElementById('inputText').addEventListener('input', function(event){
+            event.preventDefault();
+
+            const inputText = document.getElementById('inputText').value.toLowerCase().trim();
+
+            if (inputText) {
+                console.log('Estou True input: ' + inputText);
+                const filtragem = lista.filter(nome => nome.toLowerCase().includes(inputText));
+                document.getElementById('mostrarBusca').innerHTML= 'Item pesquisado: <br> <br>' + filtragem.map(nome => `<li>${nome}</li>`).join("");
+                document.getElementById('mostraLista').innerHTML = "";
+                
+            }else{
+            console.log('Estou false')
+            document.getElementById('mostrarBusca').innerHTML = "";
+            mostrarListaCompleta();
+
+            // for (let i = 0; i < lista.length; i++) {
+            // const element = lista[i];
+            // const li = document.createElement('li');
+            // li.textContent = element;
+            // document.getElementById('mostraLista').appendChild(li);}
+            }
+
+
+        })
+
+       
+    </script>
+    
+</body>
+</html>
