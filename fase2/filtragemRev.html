@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Filtragem Revisão</title>
+</head>
+<body>
+    <form method="get" id="forms">
+        <label for="intro" id="intro"><h1>Filtragem (Revisão)</h1></label>
+        <input type="text" id="entrada">
+    </form>
+
+    <ul id="mostraLista"></ul> 
+    <ul id="mostraResult"></ul>
+
+    <script>
+        let lista = ["item1", "item2", "item3", "item4", "item5", "item6", "item7", "item8", "item9", "item10"];
+
+        function mostrarListaCompleta() {
+            btn1 = document.createElement('button');
+            btn1.textContent = 'Lista completa';
+            btn1.id = 'buttonMostraLista'
+
+
+            document.getElementById('mostraLista').appendChild(btn1);
+            document.getElementById('buttonMostraLista').addEventListener('click', function(event) {
+                event.preventDefault();
+                
+                document.getElementById('mostraLista').innerHTML = '- Full Items -' + lista.map(item => `<li>${item}</li>`).join('');  
+                
+            })
+        }
+
+        mostrarListaCompleta();
+
+        document.getElementById
+
+        document.getElementById('forms').addEventListener('input', function(event) {
+            event.preventDefault();
+
+        const entrada = document.getElementById('entrada').value.toLocaleLowerCase().trim();
+        
+        if (entrada) {
+            document.getElementById('mostraLista').innerHTML='';
+            const li = document.createElement('li');
+            li.textContent = entrada;
+
+            var filtragem = lista.filter(item => item.toLocaleLowerCase().includes(entrada));
+
+            document.getElementById('mostraResult').innerHTML= '- Result - ' + filtragem.map(item => `<li>${item}</li>`).join('');
+
+        }else{
+            mostrarListaCompleta();
+            document.getElementById('mostraResult').innerHTML='';
+        }
+
+        
+    
+            
+        })
+    </script>
+</body>
+</html>
