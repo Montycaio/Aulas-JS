@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>DOM - Clicks</title>
+</head>
+<body>
+    <h1 id="mostraResult"></h1>
+    <button id="btn1" onclick="contarClick()">Click</button>
+
+    <script>
+        let num = 0;
+
+        function contarClick() {
+            num++;
+        
+             console.log(num);
+        
+             if (num === 1) {
+                
+                 document.getElementById('mostraResult').innerHTML=`Você clicou ${num} vez.`;
+             }else{
+                document.getElementById('mostraResult').innerHTML=`Você clicou ${num} vezes.`;
+             }
+             
+        }
+    </script>
+</body>
+</html>
