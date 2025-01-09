@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <form method="get" id="forms">
+        <label for="intro" id="intro"><h1>Doom - Mudar titulo</h1></label>
+        <div class="menu">
+            <input type="text" id="input1" placeholder="Digite o titulo da pagina...">
+            <button id="btn1">Mudar Titulo da Pagina </button>
+        </div>
+    </form>
+
+    <script>
+        document.getElementById('forms').addEventListener('click', function (event) {
+            event.preventDefault();
+
+            const input1 = document.getElementById('input1').value.trim();
+            const btn1 = document.title = input1;
+            
+        })
+    </script>
+</body>
+</html>
