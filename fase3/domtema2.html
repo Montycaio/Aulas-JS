@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Alterar Tema</title>
+</head>
+
+<body>
+
+    <h1>DOM - Alterar Tema</h1>
+    <button onclick="mudarTema()">Muda Tema</button>
+
+    <script>
+        let estado = true;
+
+        const temaOrig = "url('/aulas/fase3/sonic.jpg')";
+        const temaAlte = "url('/aulas/fase3/sonic2.png')";
+
+        function mudarTema() {
+            if (estado) {
+                document.body.style.backgroundImage = temaAlte;
+            } else {
+                document.body.style.backgroundImage = temaOrig;
+            }
+            estado = !estado;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Dom Clicks Revisão</title>
+</head>
+<body>
+    <form method="get" id="forms">
+        <label for="intro"><h1>Dom Clicks Revisão</h1></label>
+        <h1 id="exibir"></h1></label>
+        <button id="btn1" onclick="contadorClick(event)">Clicks</button>
+    </form>
+
+    <script>
+        let num = 0;
+
+        function contadorClick(event) {
+            event.preventDefault();
+            num++;
+            document.getElementById('exibir').innerHTML = `Você cliclou ${num} vez${num > 1 ? 'es': ''}`;
+
+
+            
+        }
+    </script>
+</body>
+</html>

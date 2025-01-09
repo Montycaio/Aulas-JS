@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <form method="get" id="forms">
+        <label for=""><h1>Dom Titulo - Revisão</h1></label>
+        <input type="text" id="input1">
+        <button type="submit">Mudar Titulo</button>
+    </form>
+
+    <script>
+            document.getElementById('forms').addEventListener('submit', function (event) {
+                event.preventDefault();
+                var input1 = document.getElementById('input1').value.trim();
+                document.title = input1;
+
+            
+            })
+    </script>
+</body>
+</html>
